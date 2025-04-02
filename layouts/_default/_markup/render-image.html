@@ -1,0 +1,8 @@
+{{ if .Title }}
+  <figure>
+    <img src="{{ if not (strings.HasPrefix .Destination "http") }}{{ .Page.RelPermalink }}{{end}}{{ .Destination | safeURL }}" alt="{{ .Text }}">
+    <figcaption><b>{{ .Title | markdownify }}</b></figcaption>
+  </figure>
+{{ else }}
+  <img src="{{ if not (strings.HasPrefix .Destination "http") }}{{ .Page.RelPermalink }}{{end}}{{ .Destination | safeURL }}" alt="{{ .Text }}">
+{{ end }}
