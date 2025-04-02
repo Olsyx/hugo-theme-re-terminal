@@ -7,8 +7,6 @@
   {{ partial "head.html" . }}
 
   {{ block "head" . }}{{""}}{{ end }}
-
-
 </head>
 <body class="{{- ( or .Params.color $.Site.Params.ThemeColor ) -}}">
 {{ if .Site.Params.Banner }}
@@ -31,7 +29,6 @@
 {{ $container := cond ($.Site.Params.FullWidthTheme | default false) "container full" (cond ($.Site.Params.CenterTheme | default true) "container center" "container") }}
 
 <div class="{{- $container -}}{{- cond ($.Site.Params.oneHeadingSize | default true) " headings--one-size" "" }}">
-
   {{ partial "header.html" . }}
 
   <div class="content">
