@@ -19,24 +19,11 @@
       {{ partial "post-reading-time.html" . }}
     </div>
 
-    {{ partial "cover.html" . }}
-
-    <div class="post-content">
-      {{ if .Params.showFullContent }}
-        {{ .Content }}
-      {{ else if .Description }}
-        <p>{{ .Description | markdownify }}</p>
-      {{ else }}
-        {{ .Summary }}
-      {{ end }}
-    </div>
-
     {{ partial "post-tags.html" . }}
     
     {{ if not .Params.showFullContent }}
       <div>
         <a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore }} →</a>
-        <!--  <a class="read-more button inline" href="{{ .RelPermalink }}">[{{ $.Site.Params.ReadMore }}]</a> -->
       </div>
     {{ end }}
 
