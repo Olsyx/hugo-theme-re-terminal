@@ -1,0 +1,14 @@
+<span class="post-taxonomies">
+{{ with .Params.Difficulty }}
+    <a href="{{ (urls.JoinPath "difficulty" (urlize .) "/") | absLangURL }}">
+        {{- . -}}
+    </a>&nbsp;
+{{ end }}
+{{ with .Params.Tools }}
+    {{ range . }}
+    <a href="{{ (urls.JoinPath "tools" (urlize .) "/") | absLangURL }}">
+        {{- . -}}
+    </a>&nbsp;
+    {{ end }}
+{{ end }}
+</span>
