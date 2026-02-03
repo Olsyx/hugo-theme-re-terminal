@@ -17,6 +17,18 @@
 
 .posts {
   width: 100%;
+
+  > h3:first-of-type {
+    margin-top: 0;
+  }
+  
+  ul li a {
+    text-decoration: none;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
 }
 
 .post {
@@ -42,12 +54,13 @@
       }
     }
   }
-
+  
   &-title {
     --border: 3px dotted var(--accent);
     position: relative;
     color: var(--accent);
-    margin: 0 0 15px;
+    margin-top: 0 !important; // override global rules for h1
+    margin-bottom: 15px;
     padding-bottom: 15px;
     border-bottom: var(--border);
 
@@ -106,6 +119,11 @@
       color: var(--accent);
     }
   }
+}
+
+.post-reading-time {
+  opacity: .5;
+  font-size: 0.9rem;
 }
 
 .post--regulation {

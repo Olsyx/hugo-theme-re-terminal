@@ -12,12 +12,24 @@
     {{ if .IsHome }}
       {{ $PageContext = .Site }}
     {{ end }}
-    {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
+
+    <!-- {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
 
     {{ range $paginator.Pages }}
-      {{ partial "post-card.html" . }}
+      {{ partial "post-card.html" . }} 
+    {{ end }}-->
+
+
+    {{ $posts := where $PageContext.RegularPages "Type" $contentTypeName }}
+
+    {{ range $posts.GroupByDate "2006" }}
+      <h3>{{ .Key }}</h3>
+      <ul>
+        {{ range .Pages.ByDate.Reverse}}
+          {{ partial "post-line.html" . }}
+        {{ end }}
+      </ul>
     {{ end }}
 
-    {{ partial "pagination.html" . }}
   </div>
 {{ end }}

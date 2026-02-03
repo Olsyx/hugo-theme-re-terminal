@@ -1,0 +1,6 @@
+<article>
+  <li>
+    <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+    {{ partial "post-reading-minutes.html" . }}
+  </li>
+</article>

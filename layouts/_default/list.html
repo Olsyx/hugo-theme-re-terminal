@@ -4,11 +4,13 @@
       {{ . }}
     </div>
   {{ end }}
-  <div class="posts">
-    {{ range .Paginator.Pages }}
-      {{ partial "post-card.html" . }}
-    {{ end }}
 
-    {{ partial "pagination.html" . }}
+  <div class="posts">
+    <h3>{{ .Title }}</h3>
+    <ul>
+      {{ range .Pages.ByDate.Reverse }}
+        {{ partial "post-line.html" . }}
+      {{ end }}
+    </ul>
   </div>
 {{ end }}
