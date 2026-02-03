@@ -19,6 +19,8 @@ $centerTheme: {{ if $.Site.Params.CenterTheme }}center{{ else }}flex-start{{ end
 @import "footer";
 @import "banner";
 
+@import "gallery";
+
 @import "prism";
 @import "syntax";
 @import "code";

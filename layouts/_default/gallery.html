@@ -1,0 +1,36 @@
+{{ define "main" }}
+
+    <div class="gallery-page">
+        {{ if .Content }}
+            <div class="index-content">
+                {{ .Content }}
+            </div>
+        {{ end }}
+        
+        {{ $posts := where .Site.RegularPages "Type" "posts" }}
+        {{ $postsWithCovers := slice }}
+
+        {{ range $posts }}
+            {{ $cover := partial "utils-get-cover.html" . }}
+            {{ if $cover }}
+                {{ $postsWithCovers = $postsWithCovers | append . }}
+            {{ end }}
+        {{ end }}    
+
+        {{ if $postsWithCovers }}
+            <div class="gallery-grid">
+            {{ range $postsWithCovers }}
+                {{ $cover := partial "utils-get-cover.html" . }}
+                {{ if $cover }}
+                <a href="{{ .Permalink }}" class="gallery-item" title="{{ .Title }}">
+                    <img src="{{ $cover }}" alt="{{ .Title }}" loading="lazy" />
+                    <span class="gallery-title">{{ .Title }}</span>
+                </a>
+                {{ end }}
+            {{ end }}
+            </div>
+        {{ else }}
+            <p>No cover images found.</p>
+        {{ end }}
+    </div>
+{{ end }}

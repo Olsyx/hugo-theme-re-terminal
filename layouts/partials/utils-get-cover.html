@@ -1,0 +1,24 @@
+{{- $page := . -}}
+{{- $cover := false -}}
+{{- $autoCover := default $.Site.Params.autoCover false -}}
+
+{{- if index $page.Params "cover" -}}
+    {{- $res := $page.Resources.GetMatch $page.Params.cover -}}
+    {{- if $res -}}
+        {{- $cover = $res.RelPermalink -}}
+    
+    {{- else -}}
+        {{- $cover = absURL $page.Params.cover -}}
+    
+    {{- end -}}
+
+{{- else if $.Site.Params.autoCover -}}
+    {{- if (not $page.Params.cover) -}}
+        {{- $res := $page.Resources.GetMatch "cover.*" -}}
+        {{- if $res -}}
+            {{- $cover = $res.RelPermalink -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- return $cover -}}
