@@ -255,6 +255,10 @@ ol {
     position: relative;
   }
 
+  li::marker {      
+    color: var(--accent);
+  }
+
   @media (max-width: $phone) {
     margin-left: 20px;
   }
@@ -284,6 +288,7 @@ ol {
 
         &:before {
           content: counters(li, ".") " ";
+          color: var(--accent);
         }
       }
     }

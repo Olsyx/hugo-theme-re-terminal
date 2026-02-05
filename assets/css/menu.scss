@@ -71,6 +71,21 @@
   .spacer {
     flex-grow: 1 !important;
   }
+
+  a {
+    text-decoration: none;
+
+    &::before {
+      content: ">";
+      color: var(--accent);
+      display: inline-block;
+      margin: 0 8px;
+    }
+
+    &:hover{
+      color: var(--accent);
+    }
+  }
 }
 
 .menu {

@@ -29,6 +29,11 @@
       color: var(--accent);
     }
   }
+  
+  .post-reading-time {
+    opacity: .5;
+    font-size: 0.9rem;
+  }
 }
 
 .post {
@@ -48,7 +53,6 @@
 
     & > *:not(:first-child) {
       &::before {
-        content: "::";
         display: inline-block;
         margin: 0 8px;
       }
@@ -78,6 +82,19 @@
     }
   }
 
+  &-taxonomies {
+    a {
+      color: var(--color);
+      text-decoration: none;
+
+      &:hover
+      {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+    }
+  }
+
   &-tags {
     display: block;
     margin-bottom: 20px;
@@ -86,6 +103,19 @@
 
     a {
       text-decoration: none;
+    }
+  }
+
+  .table-of-contents {
+    a {
+      color: var(--color);
+      text-decoration: none;
+
+      &:hover
+      {
+        color: var(--accent);
+        text-decoration: underline;
+      }
     }
   }
 
@@ -119,11 +149,18 @@
       color: var(--accent);
     }
   }
-}
 
-.post-reading-time {
-  opacity: .5;
-  font-size: 0.9rem;
+  p {
+    
+    a {
+      color: var(--accent) !important;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .post--regulation {
