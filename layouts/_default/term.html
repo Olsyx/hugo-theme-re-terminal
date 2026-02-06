@@ -6,10 +6,8 @@
     </div>
   {{ end }}
   <div class="posts">
-    {{ range .Paginator.Pages }}
-      {{ partial "post-card-summary.html" . }}
+    {{ range .Pages }}
+        {{ partial "post-line.html" . }}
     {{ end }}
-
-    {{ partial "pagination.html" . }}
   </div>
 {{ end }}
